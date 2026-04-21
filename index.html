@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FileWork – PDF/Image tools with Auto-Language OCR, Typing Master with 25 games, Text Translator. No uploads, no login.">
+<meta name="theme-color" content="#08080f">
+<title>FileWork – PDF, Image & Utility Tools</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%231a1aff'/%3E%3Cpath d='M13 10h14v11h11v17H13V10z' fill='white'/%3E%3Cpath d='M27 10l11 11H27V10z' fill='%231a1aff' opacity='.45'/%3E%3Crect x='17' y='26' width='14' height='2.5' rx='1.25' fill='%231a1aff'/%3E%3Crect x='17' y='31' width='10' height='2.5' rx='1.25' fill='%231a1aff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ad-wrap ad-top-wrap"><span class="ad-lbl">Advertisement</span><div id="ad-top"></div></div>
+
+<header>
+  <div class="logo">
+    <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
+      <rect width="48" height="48" rx="10" fill="#1a1aff"/>
+      <path d="M13 10h14v11h11v17H13V10z" fill="white"/>
+      <path d="M27 10l11 11H27V10z" fill="#1a1aff" opacity=".45"/>
+      <rect x="17" y="26" width="14" height="2.5" rx="1.25" fill="#1a1aff"/>
+      <rect x="17" y="31" width="10" height="2.5" rx="1.25" fill="#1a1aff"/>
+    </svg>
+    <span class="logo-text">File<strong>Work</strong></span>
+  </div>
+  <nav class="hnav">
+    <a href="#pdf-sec">PDF</a>
+    <a href="#img-sec">Images</a>
+    <a href="#util-sec">Utilities</a>
+    <a href="#faq">FAQ</a>
+    <a href="?page=contact">Contact</a>
+    <a href="?page=install">Install FileWork</a>
+  </nav>
+  <div class="hright">
+    <div class="lbadge">🌐 Auto-OCR · 28+ Tools</div>
+    <button class="btn-install" id="installBtn">⬇ Install App</button>
+  </div>
+</header>
+
+<!-- CONTACT PAGE (shown when ?page=contact) -->
+<div id="contact-page-content" style="display:none">
+  <section class="install-page">
+    <h2>Contact Us</h2>
+    <p>Have a question, suggestion, or found a bug? We'd love to hear from you.</p>
+
+    <div class="install-block">
+      <div class="install-block-header">
+        <span class="install-icon">✉️</span>
+        <div>
+          <h3>Email Support</h3>
+          <p>Send us your query anytime — we usually respond within 24–48 hours.</p>
+        </div>
+      </div>
+      <div style="margin-top:18px">
+        <a href="mailto:mod@abc.com" class="contact-email-btn">📧 mod@abc.com</a>
+      </div>
+    </div>
+
+    <div class="install-block" style="margin-top:20px">
+      <div class="install-block-header">
+        <span class="install-icon">💬</span>
+        <div>
+          <h3>What to include in your message</h3>
+          <p>Help us help you faster by mentioning these details.</p>
+        </div>
+      </div>
+      <div class="install-steps" style="margin-top:16px">
+        <div class="istep"><div class="istep-num">1</div><div class="istep-body"><h4>Tool Name</h4><p>Which tool were you using? (e.g. PDF OCR, Image Compress, Typing Master)</p></div></div>
+        <div class="istep"><div class="istep-num">2</div><div class="istep-body"><h4>What happened</h4><p>Describe what you expected vs what actually happened. Screenshots help a lot.</p></div></div>
+        <div class="istep"><div class="istep-num">3</div><div class="istep-body"><h4>Browser & Device</h4><p>Which browser are you using? (Chrome, Edge, Safari, Firefox) and device type (PC, Android, iPhone).</p></div></div>
+      </div>
+    </div>
+
+    <div class="install-block" style="margin-top:20px;border-color:var(--blue)">
+      <div class="install-block-header">
+        <span class="install-icon">🙋</span>
+        <div>
+          <h3>Common Questions</h3>
+          <p>Before emailing, check the <a href="#faq" id="contact-faq-link" style="color:var(--blue-lt);text-decoration:none;font-weight:600">FAQ section</a> — your answer might already be there.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- INSTALL PAGE (shown when ?page=install) -->
+<div id="install-page-content" style="display:none">
+  <section class="install-page">
+    <h2>Get Quick Access to FileWork</h2>
+    <p>Save FileWork to your device so you can open it instantly anytime — like a real app, no app store needed.</p>
+
+    <!-- OPTION 1: Install as App (PWA) -->
+    <div class="install-block" id="pwa-block">
+      <div class="install-block-header">
+        <span class="install-icon">⚡</span>
+        <div>
+          <h3>Install as Desktop / Mobile App</h3>
+          <p>Works offline. Opens like a native app — no browser tab clutter.</p>
+        </div>
+        <button class="inst-action-btn" id="pwaInstallBtn" onclick="triggerPWAInstall()">⬇ Install Now</button>
+      </div>
+      <div class="install-steps" style="margin-top:16px">
+        <div class="istep"><div class="istep-num">1</div><div class="istep-body"><h4>Open in Chrome or Edge</h4><p>Works on Google Chrome (Windows/Android) or Microsoft Edge. On iPhone, use Safari.</p></div></div>
+        <div class="istep"><div class="istep-num">2</div><div class="istep-body"><h4>Click "Install Now" above</h4><p>A popup will appear asking to install FileWork. Click <strong>Install</strong> to confirm. It takes less than 3 seconds.</p></div></div>
+        <div class="istep"><div class="istep-num">3</div><div class="istep-body"><h4>Open from Desktop anytime</h4><p>FileWork now appears as an icon on your desktop or home screen. Click it to open — works even without internet.</p></div></div>
+      </div>
+      <div id="pwa-not-supported" style="display:none;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:14px 18px;margin-top:12px;font-size:.82rem;color:var(--text2)">
+        ⚠ Your browser doesn't support PWA install. Please open this site in <strong>Google Chrome</strong> or <strong>Microsoft Edge</strong> on desktop, or <strong>Safari</strong> on iPhone.
+      </div>
+    </div>
+
+    <!-- OPTION 2: Set as Homepage -->
+    <div class="install-block" style="margin-top:24px">
+      <div class="install-block-header">
+        <span class="install-icon">🏠</span>
+        <div>
+          <h3>Set FileWork as Your Homepage</h3>
+          <p>FileWork opens automatically every time you launch your browser.</p>
+        </div>
+        <button class="inst-action-btn" onclick="showHomepageInstructions()">How To Set</button>
+      </div>
+      <div id="homepage-instructions" style="display:none;margin-top:16px">
+        <div class="install-steps">
+          <div class="istep"><div class="istep-num" style="background:var(--amber)">C</div><div class="istep-body"><h4>Chrome</h4><p>Settings → On startup → Open a specific page → Add <code id="site-url-chrome">this page URL</code> → Save.</p><button class="copy-url-btn" onclick="copyURL()">📋 Copy URL</button></div></div>
+          <div class="istep"><div class="istep-num" style="background:var(--amber)">E</div><div class="istep-body"><h4>Edge</h4><p>Settings → Start, home, and new tabs → Open these pages → Add <code id="site-url-edge">this page URL</code>.</p><button class="copy-url-btn" onclick="copyURL()">📋 Copy URL</button></div></div>
+          <div class="istep"><div class="istep-num" style="background:var(--amber)">F</div><div class="istep-body"><h4>Firefox</h4><p>Settings → Home → Homepage and new windows → Custom URLs → Paste the URL.</p><button class="copy-url-btn" onclick="copyURL()">📋 Copy URL</button></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPTION 3: Create Shortcut -->
+    <div class="install-block" style="margin-top:24px">
+      <div class="install-block-header">
+        <span class="install-icon">🔗</span>
+        <div>
+          <h3>Create Desktop Shortcut</h3>
+          <p>Add a one-click shortcut icon to your desktop — opens in your browser.</p>
+        </div>
+        <button class="inst-action-btn" onclick="showShortcutInstructions()">How To Create</button>
+      </div>
+      <div id="shortcut-instructions" style="display:none;margin-top:16px">
+        <div class="install-steps">
+          <div class="istep"><div class="istep-num" style="background:#5a5aff">W</div><div class="istep-body"><h4>Windows (Chrome / Edge)</h4><p>Open FileWork → Click the 3-dot menu (⋮) → More tools → <strong>Create shortcut</strong> → Check "Open as window" → Create. A shortcut appears on your desktop.</p></div></div>
+          <div class="istep"><div class="istep-num" style="background:#5a5aff">M</div><div class="istep-body"><h4>Mac (Chrome)</h4><p>Open FileWork → File menu → <strong>Save Page As</strong> → Choose Desktop → Or drag the 🔒 lock icon from the address bar directly to your desktop.</p></div></div>
+          <div class="istep"><div class="istep-num" style="background:#5a5aff">📱</div><div class="istep-body"><h4>Android</h4><p>Open in Chrome → Tap 3-dot menu → <strong>Add to Home screen</strong> → Tap Add. Icon appears on your home screen.</p></div></div>
+          <div class="istep"><div class="istep-num" style="background:#5a5aff">🍎</div><div class="istep-body"><h4>iPhone / iPad (Safari)</h4><p>Open in Safari → Tap Share button (□↑) → <strong>Add to Home Screen</strong> → Tap Add. Works like an app icon.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main-content">
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="badge"><span class="bdot"></span>100% Private — Files Stay On Your Device</div>
+    <h1>Work with files.<br><em>Your way.</em></h1>
+    <p class="hero-sub">PDF tools with <strong>Auto-Language OCR</strong> — detects Hindi, Arabic, Chinese automatically. Plus Image tools, Typing Master with 25 games, Translator and more.</p>
+    <div class="hero-cta">
+      <a href="#pdf-sec" class="btn-hero">Explore 28+ Tools</a>
+      <div class="hero-stats">
+        <div><strong>28+</strong><span>Tools</span></div>
+        <div class="ssep"></div>
+        <div><strong>Auto</strong><span>OCR Lang</span></div>
+        <div class="ssep"></div>
+        <div><strong>25</strong><span>Typing Games</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hv">
+    <div class="vc vc1">
+      <div class="vctop"><span class="vd r"></span><span class="vd y"></span><span class="vd g"></span></div>
+      <div class="vclbl">Auto-Language OCR</div>
+      <div style="font-family:var(--mono);font-size:.7rem;color:var(--amber)">हिंदी detected → hin ✓</div>
+      <div class="vc-bar"><div class="vc-fill" style="width:82%"></div></div>
+      <div style="font-family:var(--mono);font-size:.65rem;color:var(--text3)">Extracting… 82%</div>
+    </div>
+    <div class="vc vc2">
+      <div class="vctop"><span class="vd r"></span><span class="vd y"></span><span class="vd g"></span></div>
+      <div class="vcrow">
+        <span class="vcf">doc.pdf</span>
+        <span style="color:var(--text3)">→</span>
+        <span class="vcf out">sheet.xlsx</span>
+      </div>
+      <div class="vcsub">PDF to Excel ✓</div>
+    </div>
+    <div class="vc vc3">
+      <div class="vctop"><span class="vd r"></span><span class="vd y"></span><span class="vd g"></span></div>
+      <div class="vclbl">Typing Master</div>
+      <div style="font-size:.95rem;font-weight:800;color:var(--blue-lt);font-family:var(--mono)">⌨ 72 WPM</div>
+      <div class="vcsub">25 games available</div>
+    </div>
+    <div class="vc vc4">
+      <div class="vctop"><span class="vd r"></span><span class="vd y"></span><span class="vd g"></span></div>
+      <div class="vclbl">Translate</div>
+      <div style="font-family:var(--mono);font-size:.7rem;color:var(--text2)">हिंदी · عربي · 中文</div>
+      <div class="vcsub">100+ languages ✓</div>
+    </div>
+  </div>
+</section>
+
+<!-- PDF SECTION -->
+<section class="tsec" id="pdf-sec">
+  <div class="tsec-head">
+    <span class="tbadge tb-pdf">PDF</span>
+    <div><h2>PDF Tools</h2><p>Auto-detects document language — Hindi, Arabic, Chinese, Japanese and all scripts</p></div>
+  </div>
+  <div class="ad-wrap ad-inline"><span class="ad-lbl">Advertisement</span><div id="ad-mid"></div></div>
+  <div class="tgrid">
+    <div class="tcard" onclick="O('pdf-ocr-text')"><div class="tstripe ts-pdf"></div><div class="tinner"><div class="tico ti-pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2"/><path d="M17 17l4 4M8 11h6M11 8v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="ttext"><h3>PDF OCR — Any Language</h3><p>Auto-detects language, OCR extracts text accurately</p></div><span class="tnew">OCR</span><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('pdf-to-word')"><div class="tstripe ts-pdf"></div><div class="tinner"><div class="tico ti-pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v6h6M9 13h1.5a1.5 1.5 0 000-3H9v6M16 10l-2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="ttext"><h3>PDF to Word</h3><p>Auto-OCR detects language, outputs matching language</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('pdf-to-excel')"><div class="tstripe ts-pdf"></div><div class="tinner"><div class="tico ti-pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2"/><path d="M14 2v6h6M8 13h8M8 17h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="ttext"><h3>PDF to Excel</h3><p>Extract tables to .xlsx — OCR for scanned PDFs</p></div><span class="tnew">NEW</span><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('pdf-to-txt')"><div class="tstripe ts-pdf"></div><div class="tinner"><div class="tico ti-pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2"/><path d="M8 13h8M8 17h5M14 2v6h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="ttext"><h3>PDF to Text</h3><p>Smart text extraction with OCR fallback</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('merge-pdf')"><div class="tstripe ts-pdf"></div><div class="tinner"><div class="tico ti-pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 6H4v12h4M16 6h4v12h-4M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Merge PDFs</h3><p>Combine multiple PDFs into one file</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('split-pdf')"><div class="tstripe ts-pdf"></div><div class="tinner"><div class="tico ti-pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 8l8-4 8 4M4 16l8 4 8-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Split PDF</h3><p>Extract pages or custom page ranges</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('compress-pdf')"><div class="tstripe ts-pdf"></div><div class="tinner"><div class="tico ti-pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Compress PDF</h3><p>Reduce file size, preserve quality</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('rotate-pdf')"><div class="tstripe ts-pdf"></div><div class="tinner"><div class="tico ti-pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 8A9 9 0 1021 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 3v5h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Rotate PDF</h3><p>Rotate pages 90°, 180°, 270°</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('watermark-pdf')"><div class="tstripe ts-pdf"></div><div class="tinner"><div class="tico ti-pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 16l8-8M7 10l1-3 3-1M17 14l-1 3-3 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Watermark PDF</h3><p>Add text watermark on every page</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('protect-pdf')"><div class="tstripe ts-pdf"></div><div class="tinner"><div class="tico ti-pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 3v7c0 5-3.5 9-8 10C7.5 21 4 17 4 12V5l8-3z" stroke="currentColor" stroke-width="2"/></svg></div><div class="ttext"><h3>Protect / Unlock PDF</h3><p>Add protection watermark or remove restrictions</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('pdf-to-jpg')"><div class="tstripe ts-pdf"></div><div class="tinner"><div class="tico ti-pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><path d="M21 15l-5-5L5 21" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div><div class="ttext"><h3>PDF to Images</h3><p>Extract every page as JPG or PNG</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('img-to-pdf')"><div class="tstripe ts-pdf"></div><div class="tinner"><div class="tico ti-pdf"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="12" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="5.5" cy="6.5" r="1" fill="currentColor"/><path d="M2 10l3-3 3 3M16 6h6M16 11h6M16 16h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Images to PDF</h3><p>Pack JPG, PNG, WebP into a PDF</p></div><span class="tarr">›</span></div></div>
+  </div>
+</section>
+
+<!-- IMAGE SECTION -->
+<section class="tsec" id="img-sec">
+  <div class="tsec-head">
+    <span class="tbadge tb-img">IMG</span>
+    <div><h2>Image Tools</h2><p>Convert by pixel/size/resolution/%, compress, crop, rotate, watermark — all local</p></div>
+  </div>
+  <div class="tgrid">
+    <div class="tcard" onclick="O('img-ocr')"><div class="tstripe ts-img"></div><div class="tinner"><div class="tico ti-img"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2"/><path d="M17 17l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Image OCR</h3><p>Auto-detect language, extract text from any image</p></div><span class="tnew">OCR</span><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('img-convert')"><div class="tstripe ts-img"></div><div class="tinner"><div class="tico ti-img"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 16V4m0 0L4 7m3-3l3 3M17 8v12m0 0l3-3m-3 3l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Convert Image</h3><p>JPG ↔ PNG ↔ WebP ↔ BMP</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('img-compress')"><div class="tstripe ts-img"></div><div class="tinner"><div class="tico ti-img"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Compress Image</h3><p>Reduce size, keep visual quality</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('img-resize')"><div class="tstripe ts-img"></div><div class="tinner"><div class="tico ti-img"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="7" y="7" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2"/></svg></div><div class="ttext"><h3>Resize Image</h3><p>By pixel, size, resolution or percentage</p></div><span class="tnew">NEW</span><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('img-crop')"><div class="tstripe ts-img"></div><div class="tinner"><div class="tico ti-img"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 2v14h14M2 6h14v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Crop Image</h3><p>Visual drag-to-select crop area</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('img-rotate')"><div class="tstripe ts-img"></div><div class="tinner"><div class="tico ti-img"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 8A9 9 0 1021 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 3v5h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Rotate / Flip</h3><p>Rotate 90°/180° or flip mirror</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('img-watermark')"><div class="tstripe ts-img"></div><div class="tinner"><div class="tico ti-img"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M8 16l8-8M7 10l1-3 3-1M17 14l-1 3-3 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Watermark Image</h3><p>Text stamp at any position</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('img-grayscale')"><div class="tstripe ts-img"></div><div class="tinner"><div class="tico ti-img"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 3v18" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 010 18z" fill="currentColor" opacity=".3"/></svg></div><div class="ttext"><h3>Grayscale / B&amp;W</h3><p>Convert to gray or true black &amp; white</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('img-brightness')"><div class="tstripe ts-img"></div><div class="tinner"><div class="tico ti-img"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Adjust Image</h3><p>Brightness, contrast, saturation, blur</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('img-merge')"><div class="tstripe ts-img"></div><div class="tinner"><div class="tico ti-img"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="8" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="4" width="8" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M10 12h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Merge Images</h3><p>Stitch vertically or horizontally</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('img-metadata')"><div class="tstripe ts-img"></div><div class="tinner"><div class="tico ti-img"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Strip EXIF Data</h3><p>Remove metadata for privacy</p></div><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('img-base64')"><div class="tstripe ts-img"></div><div class="tinner"><div class="tico ti-img"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><polyline points="16 18 22 12 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="8 6 2 12 8 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Image to Base64</h3><p>Encode for web / CSS / HTML</p></div><span class="tarr">›</span></div></div>
+  </div>
+</section>
+
+<!-- UTILITY SECTION -->
+<section class="tsec" id="util-sec">
+  <div class="tsec-head">
+    <span class="tbadge tb-util">UTILITY</span>
+    <div><h2>Utility Tools</h2><p>Text translator, Typing Master with 25 games, Keyboard &amp; Mouse tester</p></div>
+  </div>
+  <div class="tgrid">
+    <div class="tcard" onclick="O('text-translator')"><div class="tstripe ts-util"></div><div class="tinner"><div class="tico ti-util"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 5h12M7 3v2M10 21l4-9 4 9M12.6 17h4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M21 5c0 4-2 6-6 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Text Translator</h3><p>Translate between 100+ languages instantly</p></div><span class="tnew">NEW</span><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('typing-master')"><div class="tstripe ts-util"></div><div class="tinner"><div class="tico ti-util"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="13" rx="2" stroke="currentColor" stroke-width="2"/><path d="M6 10h1M10 10h1M14 10h1M18 10h1M6 14h1M10 14h1M14 14h1M18 14h1M8 17h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Typing Master</h3><p>25 games + tutorial — improve WPM &amp; accuracy</p></div><span class="tnew">25 Games</span><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('keyboard-mouse-test')"><div class="tstripe ts-util"></div><div class="tinner"><div class="tico ti-util"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="2" width="16" height="20" rx="3" stroke="currentColor" stroke-width="2"/><path d="M12 2v8" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="14" r="2" fill="currentColor" opacity=".5"/></svg></div><div class="ttext"><h3>Keyboard &amp; Mouse Tester</h3><p>Test every key and mouse button instantly</p></div><span class="tnew">NEW</span><span class="tarr">›</span></div></div>
+    <div class="tcard" onclick="O('img-to-pdf2')"><div class="tstripe ts-util"></div><div class="tinner"><div class="tico ti-util"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="2"/><path d="M14 2v6h6M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="ttext"><h3>Image to PDF</h3><p>Pack multiple images into a PDF</p></div><span class="tarr">›</span></div></div>
+  </div>
+</section>
+
+<section class="how" id="how"><div class="how-in"><span class="slbl">Process</span><h2>Three steps. That's it.</h2><div class="steps"><div class="step"><div class="snum">01</div><h3>Choose Tool</h3><p>Pick from 28+ PDF, Image or Utility tools.</p></div><div class="step-arr">→</div><div class="step"><div class="snum">02</div><h3>Drop File</h3><p>Drag &amp; drop. Nothing gets uploaded anywhere.</p></div><div class="step-arr">→</div><div class="step"><div class="snum">03</div><h3>Download</h3><p>Result ready instantly — free, always.</p></div></div></div></section>
+
+<section class="trust"><div class="trgrid"><div class="tritem"><div class="triico">🔒</div><strong>Zero Upload</strong><span>All processing local</span></div><div class="tritem"><div class="triico">🌐</div><strong>Auto OCR Lang</strong><span>Hindi, Arabic, Chinese…</span></div><div class="tritem"><div class="triico">⌨</div><strong>25 Typing Games</strong><span>Practice &amp; improve</span></div><div class="tritem"><div class="triico">📴</div><strong>Works Offline</strong><span>Install as local PWA</span></div></div></section>
+
+<div class="ad-wrap ad-bottom"><span class="ad-lbl">Advertisement</span><div id="ad-bottom"></div></div>
+
+<section class="faq" id="faq">
+  <span class="slbl">Questions</span><h2>Frequently Asked</h2>
+  <div class="fitem"><button class="fq">How does auto-language OCR work? <span>+</span></button><div class="fa">FileWork first renders PDF pages as images, then uses Tesseract.js (Google's OCR engine in WebAssembly) to analyze the text. It automatically detects the script — Devanagari for Hindi, Arabic script for Urdu/Arabic, CJK characters for Chinese/Japanese — and applies the correct OCR language model. No manual selection needed.</div></div>
+  <div class="fitem"><button class="fq">Are my files safe? <span>+</span></button><div class="fa">Yes — completely. All processing happens locally in your browser. Files never leave your device and are never uploaded to any server.</div></div>
+  <div class="fitem"><button class="fq">What are the 25 typing games? <span>+</span></button><div class="fa">The Typing Master includes: Speed Test, Accuracy Test, Dino Runner (type to jump!), Word Rain, Bubble Pop, Word Scramble, Sentence Builder, Word Match, Ghost Writer, Speed Burst, Endurance Mode, Code Typer, Number Pad, Caps Lock, Reverse Type, Blind Type, Morse Code, Rhythm Type, Word Chain, Sentence Race, Punctuation Pro, Symbol Master, Memory Type, Speed Ladder, and Marathon — 25 unique games to build every aspect of typing skill.</div></div>
+  <div class="fitem"><button class="fq">Is it really free? <span>+</span></button><div class="fa">Completely free, forever. Supported by non-intrusive advertising. No premium tiers, no hidden limits.</div></div>
+  <div class="fitem"><button class="fq">Can I use it offline? <span>+</span></button><div class="fa">Yes! Click "Install App" or visit the Install page from the header. After first visit, all tools work completely offline as a PWA.</div></div>
+</section>
+
+</div><!-- end #main-content -->
+
+<footer><div class="fin"><div class="ftop"><div class="logo"><svg width="24" height="24" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="10" fill="#1a1aff"/><path d="M13 10h14v11h11v17H13V10z" fill="white"/><path d="M27 10l11 11H27V10z" fill="#1a1aff" opacity=".45"/><rect x="17" y="26" width="14" height="2.5" rx="1.25" fill="#1a1aff"/><rect x="17" y="31" width="10" height="2.5" rx="1.25" fill="#1a1aff"/></svg><span class="logo-text">File<strong>Work</strong></span></div><div class="flinks"><a href="#faq">FAQ</a><a href="?page=contact">Contact</a><a href="?page=install">Install FileWork</a></div></div><p class="ftagline">Built for privacy. Runs in your browser. Always free.</p><p class="fcopy">© 2025 FileWork. No data collected. No cookies. No tracking.</p></div></footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="mbox">
+    <button class="mclose" onclick="CM()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></button>
+    <div id="mcontent"></div>
+    <div id="pre-result-ad-wrap" style="display:none">
+      <div class="ad-wrap ad-pre"><span class="ad-lbl">Advertisement</span><div id="ad-pre-result"></div></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+<script src="ads.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
